@@ -43,7 +43,8 @@ export function Home() {
   }
 
   const task = watch('task')
-  const isSubmitButtonDisabled = !task
+  const isStartButtonDisabled = !task
+  const isStopButtonDisabled = activeCycle?.endDate !== undefined
 
   return (
     <HomeContainer>
@@ -54,12 +55,16 @@ export function Home() {
         <CountDown />
 
         {activeCycle ? (
-          <StopContDownButton onClick={stopActiveCycle} type="button">
+          <StopContDownButton
+            onClick={stopActiveCycle}
+            disabled={isStopButtonDisabled}
+            type="button"
+          >
             <HandPalm size={24} />
             Stop
           </StopContDownButton>
         ) : (
-          <StartContDownButton disabled={isSubmitButtonDisabled} type="submit">
+          <StartContDownButton disabled={isStartButtonDisabled} type="submit">
             <Play size={24} />
             Start
           </StartContDownButton>

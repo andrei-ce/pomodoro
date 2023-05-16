@@ -31,7 +31,7 @@ export function CountDown() {
         // so we always compare how many seconds have passed since the start date
         const secondsRemaining = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         if (secondsRemaining >= startingSeconds) {
