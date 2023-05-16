@@ -27,13 +27,13 @@ interface CycleStateInterface {
   markActiveCycleAsDone: () => void
 }
 
-interface CycledContextProviderProps {
+interface CycleContextProviderProps {
   children: ReactNode
 }
 
 export const CycleContext = createContext({} as CycleStateInterface)
 
-export function CycleContextProvider({ children }: CycledContextProviderProps) {
+export function CycleContextProvider({ children }: CycleContextProviderProps) {
   const [cycles, setCycles] = useState<Cycle[]>([])
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const [secondsPassed, setSecondsPassed] = useState(0)
@@ -42,18 +42,6 @@ export function CycleContextProvider({ children }: CycledContextProviderProps) {
 
   function updateSecondsPassed(s: number) {
     setSecondsPassed(s)
-  }
-
-  function markActiveCycleAsDone() {
-    setCycles((prevState) =>
-      prevState.map((cycle) => {
-        if (cycle.id === activeCycleId) {
-          return { ...cycle, endDate: new Date() }
-        } else {
-          return cycle
-        }
-      }),
-    )
   }
 
   function createNewCycle(data: any) {
@@ -69,6 +57,18 @@ export function CycleContextProvider({ children }: CycledContextProviderProps) {
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(id)
     setSecondsPassed(0) // otherwise we will reuse the secondsPassed from the previous task, if there was one
+  }
+
+  function markActiveCycleAsDone() {
+    setCycles((prevState) =>
+      prevState.map((cycle) => {
+        if (cycle.id === activeCycleId) {
+          return { ...cycle, endDate: new Date() }
+        } else {
+          return cycle
+        }
+      }),
+    )
   }
 
   function stopActiveCycle() {
