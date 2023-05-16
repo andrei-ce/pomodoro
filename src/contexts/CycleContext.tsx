@@ -1,4 +1,6 @@
 import { ReactNode, createContext, useState } from 'react'
+// we're trying to keep the context library agnostic.
+// if we do need a library, make sure it's not used in other parts of the application
 
 interface Cycle {
   id: string
@@ -67,7 +69,6 @@ export function CycleContextProvider({ children }: CycledContextProviderProps) {
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(id)
     setSecondsPassed(0) // otherwise we will reuse the secondsPassed from the previous task, if there was one
-    // reset()
   }
 
   function stopActiveCycle() {
