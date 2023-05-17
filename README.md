@@ -10,10 +10,10 @@ To run this project you will need to
 You then be able to 
 
 **1) start a new cycle**
-![alt text](/assets/screenshot-start.jpg?raw=true)
+![alt text](/src/assets/screenshot-start.jpg)
 
 **2) keep track of time left (also visible on the tab)**
-![alt text](/assets/screenshot-ongoing.jpg?raw=true)
+![alt text](/src/assets/screenshot-ongoing.jpg)
 
 **3) review your tasks' history and status**
-![alt text](/assets/screenshot-history.jpg?raw=true)
+![alt text](/src/assets/screenshot-history.jpg)
