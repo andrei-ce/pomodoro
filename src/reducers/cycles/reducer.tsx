@@ -11,7 +11,6 @@ export interface Cycle {
 interface CyclesState {
   cycles: Cycle[]
   activeCycleId: string | null
-  // secondsPassed: number
 }
 
 export function cyclesReducer(state: CyclesState, action: any) {
@@ -40,6 +39,7 @@ export function cyclesReducer(state: CyclesState, action: any) {
     case ActionTypes.FINISH_CURRENT_CYCLE: {
       return {
         ...state,
+        activeCycleId: null,
         cycles: state.cycles.map((cycle) => {
           if (cycle.id === state.activeCycleId) {
             return { ...cycle, endDate: new Date() }
