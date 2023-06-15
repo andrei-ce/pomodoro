@@ -7,7 +7,7 @@ To run this project you will need to
 * Run ```npm run dev```
 * Access http://localhost:3001/ in your browser
 
-You then be able to 
+You then will be able to 
 
 **1) start a new cycle**
 ![alt text](/src/assets/screenshot-start.jpg)
